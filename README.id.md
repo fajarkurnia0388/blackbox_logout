@@ -16,7 +16,7 @@ Tool profesional untuk **menghapus kredensial Blackbox** dengan aman dari Cursor
 - 🇮🇩 [Bahasa Indonesia](README.id.md) (Current)
 - 🇺🇸 [English](README.md)
 
-## 📁 Struktur Project
+## 📁 Struktur Project17
 
 ```
 blackbox_logout/
@@ -560,7 +560,7 @@ cd blackbox_logout
 python blackbox_logout.py
 ```
 
-**Butuh bantuan?** Cek [section troubleshooting](#-troubleshooting) atau buka issue.
+**Butuh bantuan?** Cek [section troubleshooting](https://github.com/fajarkurnia0388/blackbox_logout/issues) atau buka issue.
 
 ---
 
