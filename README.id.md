@@ -1,108 +1,110 @@
 # 🛡️ Blackbox Credential Remover & State.vscdb Tools
 
+[![Python](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0-orange.svg)]()
+[![Security](https://img.shields.io/badge/Security-Safe%20Mode-red.svg)]()
+
 **Baca dalam bahasa lain:** [🇺🇸 English](README.md)
 
-Tool untuk **menghapus kredensial Blackbox** dengan aman dari Cursor/VSCode dan menganalisis file `state.vscdb`. Cek [win+r : %APPDATA%\Cursor\User\globalStorage or %APPDATA%\Code\User\globalStorage]
+Tool profesional untuk **menghapus kredensial Blackbox** dengan aman dari Cursor/VSCode dan analisis komprehensif file `state.vscdb`. Dirancang dengan pendekatan keamanan-first dan perlindungan backup otomatis.
 
-## 📁 File yang Tersedia
+> **🚀 Quick Start:** Jalankan `python blackbox_logout.py` untuk menghapus kredensial Blackbox dengan aman!
 
-### 🇮🇩 Script Indonesia
+## 🌐 Versi Bahasa
 
-1. **`blackbox_logout.py`** - 🗑️ **Script utama** untuk menghapus HANYA kredensial Blackbox dengan aman (Indonesia)
-2. **`vscdb_converter.py`** - 🔍 Tool analisis lengkap dengan export JSON (Indonesia)
-3. **`quick_reader.py`** - 🔍 Tool pembacaan cepat dan pencarian sederhana (Indonesia)
+- 🇮🇩 [Bahasa Indonesia](README.id.md) (Current)
+- 🇺🇸 [English](README.md)
 
-### 🇺🇸 Script English
+## 📁 Struktur Project
 
-1. **`blackbox_logout_en.py`** - 🗑️ **Main script** for safely removing ONLY Blackbox credentials (English)
-2. **`vscdb_converter_en.py`** - 🔍 Complete analysis tool with JSON export (English)
-3. **`quick_reader_en.py`** - 🔍 Quick reading tool and simple search (English)
-
-## 🎯 Tujuan Utama: Menghapus Kredensial Blackbox
-
-Script ini dibuat khusus untuk **logout/menghapus kredensial Blackbox** dari Cursor tanpa merusak data lainnya.
-
-### 🗑️ Cara Menghapus Kredensial Blackbox
-
-#### 📋 Panduan Langkah demi Langkah
-
-**Langkah 1: Temukan dan Copy File state.vscdb**
-
-1. Tekan `Win + R` untuk membuka dialog Run
-2. Ketik: `%APPDATA%\Cursor\User\globalStorage`
-3. Tekan Enter untuk membuka folder
-4. Cari file `state.vscdb`
-5. **Copy** file ini ke direktori yang sama dengan script ini (tempat Anda download tools ini)
-
-**Langkah 2: Jalankan Script**
-
-```bash
-# Jalankan script penghapus kredensial (versi Indonesia)
-python blackbox_logout.py
+```
+blackbox_logout/
+├── 📄 blackbox_logout.py         # Script penghapus kredensial utama (Indonesia)
+├── 📄 blackbox_logout_en.py      # Main credential removal script (English)
+├── 📄 vscdb_converter.py         # Tool analisis database lengkap (Indonesia)
+├── 📄 vscdb_converter_en.py      # Complete database analysis tool (English)
+├── 📄 quick_reader.py            # Tool pembacaan cepat dan pencarian (Indonesia)
+├── 📄 quick_reader_en.py         # Quick reading and search tool (English)
+├── 📄 README.id.md               # Dokumentasi Indonesia
+└── 📄 README.md                  # English documentation
 ```
 
-**Langkah 3: Terapkan Perubahan Kembali ke Cursor**
+## 🚀 Overview Script
 
-1. Setelah script selesai berhasil, Anda akan mendapat perintah copy
-2. **Copy** file `state.vscdb` yang sudah dibersihkan kembali ke lokasi asli:
-   - Tekan `Win + R` lagi
-   - Ketik: `%APPDATA%\Cursor\User\globalStorage`
-   - **Ganti** file `state.vscdb` asli dengan versi yang sudah dibersihkan
-3. Buka Cursor - extension Blackbox akan dalam keadaan logout
+### 1. **blackbox_logout.py** - Penghapusan Kredensial Blackbox yang Aman
 
-**Alternatif:** Gunakan versi English dengan `python blackbox_logout_en.py`
+**Fitur Utama:**
 
-## 🛡️ Keamanan & Fitur
+- 🛡️ **Mode Aman**: Hanya menghapus kredensial Blackbox yang terverifikasi
+- 🔒 **Backup Otomatis**: Membuat backup sebelum melakukan perubahan
+- 🎯 **Penghapusan Terarah**: Melindungi semua data Cursor lainnya
+- 🔍 **Analisis Cerdas**: Menganalisis setiap key sebelum penghapusan
+- ✅ **Verifikasi Keamanan**: Memastikan data yang dihapus benar-benar kredensial
 
-### ✅ Mode Aman (Safe Mode)
-
-- **SPESIFIK**: Hanya menghapus kredensial Blackbox, TIDAK menghapus data umum Cursor
-- **Analisis Cerdas**: Menganalisis setiap key sebelum penghapusan
-- **Backup Otomatis**: Membuat backup sebelum melakukan perubahan
-- **Verifikasi Keamanan**: Memastikan data yang dihapus benar-benar kredensial
-- **Perlindungan Data**: History, UI, dan extension lain tetap aman
-
-### 🔑 Yang Akan Dihapus (Hanya Kredensial)
+**Yang Akan Dihapus:**
 
 - `Blackboxapp.blackboxagent` - Kredensial utama (userId, apiProvider, dll)
 - `workbench.view.extension.blackboxai-dev-ActivityBar.state.hidden` - UI extension
 - Entry history folder Blackbox (opsional, dengan konfirmasi)
 
-### 🛡️ Yang TIDAK Akan Dihapus (Dilindungi)
+**Yang Akan Dilindungi:**
 
-- ✅ History umum Cursor
-- ✅ Setting UI workbench
+- ✅ History dan setting umum Cursor
+- ✅ Konfigurasi UI workbench
 - ✅ Data extension lain (Python, Git, dll)
 - ✅ Data tracking kode umum
-- ✅ Notification settings
-- ✅ Semua data umum Cursor lainnya
+- ✅ Setting notifikasi
 
-## 🔍 Tools Analisis (Opsional)
-
-### Quick Reader - Pembacaan Cepat
-
-**Versi Indonesia:**
+**Penggunaan:**
 
 ```bash
-# Baca file dari lokasi default
-python quick_reader.py
+# Penggunaan dasar
+python blackbox_logout.py
 
-# Baca file tertentu
-python quick_reader.py state.vscdb
+# Dengan path database custom
+python blackbox_logout.py /path/to/state.vscdb
 
-# Cari data yang mengandung kata kunci
-python quick_reader.py state.vscdb blackbox
+# Mode force (lewati konfirmasi)
+python blackbox_logout.py --force
 ```
 
-**Versi English:**
+**Output:**
 
-```bash
-python quick_reader_en.py [parameter sama]
+```
+[SAFE BLACKBOX CREDENTIAL REMOVER]
+Script AMAN untuk menghapus HANYA kredensial Blackbox
+====================================================
+
+[SAFE MODE] Mode Aman Aktif:
+1. Hanya menghapus kredensial Blackbox yang TERVERIFIKASI
+2. Data umum Cursor (history, UI, extension lain) TIDAK akan dihapus
+3. Backup otomatis akan dibuat
+4. Analisis detail sebelum penghapusan
+
+[ANALYSIS] Analisis 2 key yang ditemukan:
+   1. Blackboxapp.blackboxagent
+      Status: 🔑 KREDENSIAL
+      Alasan: Mengandung data kredensial
+      Preview: {"userId": "7614759925-3453642318-9431765582-4616178980", "apiProvider": "blackbox-pro-plus", "installed": true}
+
+[COMPLETED] ✅ Kredensial Blackbox berhasil dihapus dengan aman!
+[BACKUP] File backup tersimpan di: state.vscdb.safe_backup_20250102_123456
 ```
 
-### Converter Lengkap - Analisis Detail
+---
 
-**Versi Indonesia:**
+### 2. **vscdb_converter.py** - Analisis Database Lengkap
+
+**Fitur Utama:**
+
+- 🔍 **Analisis Lengkap**: Eksplorasi konten database penuh
+- 📊 **Export JSON**: Export data terstruktur untuk analisis lebih lanjut
+- 🔎 **Pencarian Lanjutan**: Pencarian data berdasarkan kata kunci
+- 📋 **Informasi Tabel**: Schema tabel dan statistik detail
+- 🛡️ **Analisis Keamanan**: Deteksi dan pelaporan data sensitif
+
+**Penggunaan:**
 
 ```bash
 # Tampilkan informasi database
@@ -116,13 +118,325 @@ python vscdb_converter.py -f state.vscdb --search blackbox
 
 # Export ke file JSON
 python vscdb_converter.py -f state.vscdb --export output.json
+
+# Analisis keamanan
+python vscdb_converter.py -f state.vscdb --security-scan
 ```
 
-**Versi English:**
+**Output:**
+
+```
+[VSCDB CONVERTER] Tool Analisis Database Lengkap
+===============================================
+
+[INFO] Database: state.vscdb
+[INFO] Ukuran: 45,234,567 bytes (43.15 MB)
+[INFO] Tabel: 3 (ItemTable, cursorDiskKV, ExtensionState)
+
+[SEARCH] Ditemukan 15 hasil untuk kata kunci 'blackbox':
+   1. Blackboxapp.blackboxagent - DATA KREDENSIAL
+   2. workbench.view.extension.blackboxai-dev-ActivityBar.state.hidden - STATE UI
+   ...
+
+[EXPORT] Data diekspor ke: output.json
+```
+
+---
+
+### 3. **quick_reader.py** - Pembacaan & Pencarian Cepat
+
+**Fitur Utama:**
+
+- ⚡ **Pembacaan Cepat**: Overview konten database yang cepat
+- 🔍 **Pencarian Sederhana**: Pencarian kata kunci dasar
+- 📊 **Statistik**: Statistik tabel dan data
+- 🎯 **Query Terarah**: Fokus pada tipe data tertentu
+
+**Penggunaan:**
 
 ```bash
-python vscdb_converter_en.py [parameter sama]
+# Baca file dari lokasi default
+python quick_reader.py
+
+# Baca file tertentu
+python quick_reader.py state.vscdb
+
+# Cari data yang mengandung kata kunci
+python quick_reader.py state.vscdb blackbox
+
+# Tampilkan statistik saja
+python quick_reader.py --stats
 ```
+
+**Output:**
+
+```
+[QUICK READER] Tool Pembacaan Database Cepat
+===========================================
+
+[INFO] Membaca: state.vscdb
+[INFO] Ukuran: 45,234,567 bytes (43.15 MB)
+[INFO] Tabel: 3
+
+[SEARCH] Mencari 'blackbox'...
+[DITEMUKAN] 15 kecocokan di 2 tabel:
+   ItemTable: 12 kecocokan
+   cursorDiskKV: 3 kecocokan
+
+[STATS] Total record: 1,234,567
+[STATS] Terkait Blackbox: 15 (0.001%)
+```
+
+## 🛠️ Persyaratan
+
+**Dependensi Python:**
+
+- Python 3.6+
+- sqlite3 (built-in)
+- json (built-in)
+- os, sys, datetime, collections, re, pathlib (built-in)
+- base64 (built-in)
+
+**Tidak perlu instalasi package eksternal!**
+
+## ⚡ Panduan Quick Start
+
+### Langkah Quick Start:
+
+```bash
+# 1. Download atau clone repository
+git clone <repository-url>
+cd blackbox_logout
+
+# 2. Copy file state.vscdb ke direktori ini
+# (dari folder Cursor/VS Code: %APPDATA%\Cursor\User\globalStorage\state.vscdb)
+
+# 3. Jalankan penghapusan kredensial
+python blackbox_logout.py
+
+# 4. Copy file yang sudah dibersihkan kembali ke lokasi asli
+# (Ikuti perintah copy yang diberikan oleh script)
+```
+
+### 📋 Penggunaan Umum
+
+#### 1. **Setup Environment**
+
+```bash
+# Pastikan Python 3.6+ terinstall
+python --version
+
+# Clone repository
+git clone <repository-url>
+cd blackbox_logout
+
+# Copy state.vscdb dari Cursor/VS Code
+# Windows: %APPDATA%\Cursor\User\globalStorage\state.vscdb
+# macOS: ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb
+# Linux: ~/.config/Cursor/User/globalStorage/state.vscdb
+
+cp /path/to/cursor/state.vscdb ./
+```
+
+#### 2. **Penghapusan Kredensial (Direkomendasikan)**
+
+```bash
+# Penghapusan kredensial aman dengan backup otomatis
+python blackbox_logout.py
+
+# Dengan path database custom
+python blackbox_logout.py /custom/path/state.vscdb
+
+# Mode force (lewati konfirmasi)
+python blackbox_logout.py --force
+```
+
+#### 3. **Analisis Database**
+
+```bash
+# Analisis database lengkap
+python vscdb_converter.py -f state.vscdb --info
+
+# Cari data tertentu
+python vscdb_converter.py -f state.vscdb --search blackbox
+
+# Export ke JSON
+python vscdb_converter.py -f state.vscdb --export analysis.json
+```
+
+#### 4. **Pembacaan Cepat**
+
+```bash
+# Overview database cepat
+python quick_reader.py
+
+# Cari kata kunci tertentu
+python quick_reader.py state.vscdb blackbox
+
+# Tampilkan statistik
+python quick_reader.py --stats
+```
+
+### 🎯 **Workflow yang Direkomendasikan:**
+
+```mermaid
+graph TD
+    A[Copy state.vscdb] --> B[Jalankan blackbox_logout.py]
+    B --> C[Review Hasil Analisis]
+    C --> D{Perlu Analisis Lebih?}
+    D -->|Ya| E[Jalankan vscdb_converter.py]
+    D -->|Tidak| F[Copy File yang Dibersihkan Kembali]
+    E --> G[Export Analisis JSON]
+    G --> F
+    F --> H[Buka Cursor - Blackbox Logout]
+```
+
+## 🔒 Keamanan Data
+
+**Fitur Keamanan:**
+
+- ✅ Deteksi data sensitif otomatis
+- ✅ Sensor data kredensial dan token
+- ✅ Kategorisasi level sensitivitas
+- ✅ Opsi export dengan/tanpa data sensitif
+- ✅ Laporan keamanan dengan rekomendasi
+
+**Level Sensitivitas:**
+
+- 🔴 **Tinggi**: token, password, key, secret, credential
+- 🟡 **Sedang**: userid, email, api, auth
+- 🟢 **Rendah**: plan, status, mode, feature
+
+**Fitur Mode Aman:**
+
+- 🛡️ **Penghapusan Terarah**: Hanya menghapus kredensial Blackbox yang terverifikasi
+- 🔍 **Analisis Cerdas**: Menganalisis setiap key sebelum penghapusan
+- 🔒 **Backup Otomatis**: Membuat backup sebelum melakukan perubahan
+- ✅ **Verifikasi Keamanan**: Memastikan data yang dihapus benar-benar kredensial
+- 🛡️ **Perlindungan Data**: History, UI, dan extension lain tetap aman
+
+**Yang Akan Dihapus (Hanya Kredensial):**
+
+- `Blackboxapp.blackboxagent` - Kredensial utama (userId, apiProvider, dll)
+- `workbench.view.extension.blackboxai-dev-ActivityBar.state.hidden` - UI extension
+- Entry history folder Blackbox (opsional, dengan konfirmasi)
+
+**Yang Akan Dilindungi:**
+
+- ✅ History dan setting umum Cursor
+- ✅ Konfigurasi UI workbench
+- ✅ Data extension lain (Python, Git, dll)
+- ✅ Data tracking kode umum
+- ✅ Setting notifikasi
+- ✅ Semua data umum Cursor lainnya
+
+## 📊 Output dan Laporan
+
+### Format Output:
+
+- **JSON**: Data terstruktur untuk analisis lebih lanjut
+- **HTML**: Laporan visual yang mudah dibaca
+- **TXT**: Ringkasan dan laporan keamanan
+- **File Backup**: Backup otomatis dengan timestamp
+
+### Jenis Laporan:
+
+1. **Analisis Kredensial**: Analisis detail kredensial yang ditemukan
+2. **Laporan Keamanan**: Laporan keamanan dengan rekomendasi
+3. **Statistik Database**: Statistik tabel dan data
+4. **Laporan Export**: Export data terstruktur untuk analisis
+
+## ⚡ Tips Performa
+
+### Untuk Database Besar (>100MB):
+
+```bash
+# Gunakan mode analisis cepat
+python vscdb_converter.py -f state.vscdb --quick
+
+# Pencarian dengan batasan
+python vscdb_converter.py -f state.vscdb --search blackbox --limit 1000
+```
+
+### Untuk Analisis Lengkap:
+
+```bash
+# Gunakan script yang dioptimalkan untuk performa terbaik
+python vscdb_converter.py -f state.vscdb --export analysis.json
+```
+
+## 🐛 Troubleshooting
+
+### Error Umum:
+
+**1. File tidak ditemukan:**
+
+```
+❌ [ERROR] File state.vscdb tidak ditemukan!
+💡 [SOLUSI] Copy file state.vscdb ke direktori script ini
+```
+
+**2. Database terkunci:**
+
+```
+❌ [ERROR] Database terkunci
+💡 [SOLUSI] Tutup aplikasi Cursor/VS Code terlebih dahulu
+```
+
+**3. Permission denied:**
+
+```
+❌ [ERROR] Permission denied
+💡 [SOLUSI] Jalankan sebagai administrator atau periksa permission file
+```
+
+**4. Gagal membuat backup:**
+
+```
+❌ [ERROR] Tidak dapat membuat backup
+💡 [SOLUSI] Periksa ruang disk dan permission write
+```
+
+### Langkah Troubleshooting:
+
+```bash
+# 1. Periksa versi Python
+python --version
+
+# 2. Verifikasi permission file
+ls -la state.vscdb
+
+# 3. Test integritas database
+python -c "import sqlite3; sqlite3.connect('state.vscdb').close()"
+
+# 4. Periksa ruang disk yang tersedia
+df -h
+
+# 5. Jalankan dengan logging verbose
+python blackbox_logout.py --verbose
+```
+
+## 🔧 Matriks Kompatibilitas
+
+| Platform              | Versi Python | Status            | Catatan                  |
+| --------------------- | ------------ | ----------------- | ------------------------ |
+| Windows 10+           | 3.6 - 3.12   | ✅ Dukungan Penuh | Diuji pada Windows 11    |
+| macOS 10.15+          | 3.6 - 3.12   | ✅ Dukungan Penuh | Diuji pada macOS 12+     |
+| Linux (Ubuntu/CentOS) | 3.6 - 3.12   | ✅ Dukungan Penuh | Diuji pada Ubuntu 20.04+ |
+| WSL                   | 3.6 - 3.12   | ✅ Dukungan Penuh | Sama dengan Windows      |
+
+### Kompatibilitas Database
+
+- ✅ **SQLite 3.x** (semua versi)
+- ✅ **File state.vscdb Cursor**
+- ✅ **File state.vscdb VS Code**
+- ✅ **Database SQLite custom**
+
+### Batasan Ukuran File
+
+- ⚡ **Mode Cepat**: Database hingga 500MB
+- 🔍 **Mode Lengkap**: Database hingga 2GB (dengan RAM cukup)
+- 📊 **Converter**: Database hingga 5GB
 
 ## 📍 Lokasi File State.vscdb
 
@@ -146,76 +460,52 @@ C:\Users\[USERNAME]\AppData\Roaming\Cursor\User\globalStorage\state.vscdb
 ~/.config/Cursor/User/globalStorage/state.vscdb
 ```
 
-## 📋 Contoh Output Script Utama
+## 📈 Changelog
 
-```
-[SAFE BLACKBOX CREDENTIAL REMOVER]
-Script AMAN untuk menghapus HANYA kredensial Blackbox
-====================================================
+### Versi 1.0 (Current)
 
-[SAFE MODE] Mode Aman Aktif:
-1. Hanya menghapus kredensial Blackbox yang TERVERIFIKASI
-2. Data umum Cursor (history, UI, extension lain) TIDAK akan dihapus
-3. Backup otomatis akan dibuat
-4. Analisis detail sebelum penghapusan
+- ✅ **BARU:** Script penghapusan kredensial Blackbox yang aman
+- ✅ **BARU:** Tool analisis database lengkap
+- ✅ **BARU:** Fungsi pembacaan cepat dan pencarian
+- ✅ **BARU:** Perlindungan backup otomatis
+- ✅ **BARU:** Analisis keamanan dan pelaporan
+- ✅ **BARU:** Dukungan multi-bahasa (Indonesia/English)
+- ✅ **DIPERBAIKI:** Penanganan error dan feedback pengguna
+- ✅ **DIPERBAIKI:** Kompatibilitas lintas platform
 
-[ANALYSIS] Analisis 2 key yang ditemukan:
+## 🎯 Contoh Penggunaan Lanjutan
 
-   1. Blackboxapp.blackboxagent
-      Status: 🔑 KREDENSIAL
-      Alasan: Mengandung data kredensial
-      Preview:
-         {
-           "userId": "7614759925-3453642318-9431765582-4616178980",
-           "apiProvider": "blackbox-pro-plus",
-           "installed": true
-         }
+### Analisis Custom
 
-   2. workbench.view.extension.blackboxai-dev-ActivityBar.state.hidden
-      Status: 🔑 KREDENSIAL
-      Alasan: Extension UI Blackbox
+```bash
+# Analisis kata kunci tertentu saja
+python vscdb_converter.py -f state.vscdb --search "token,password,api_key"
 
-[COMPLETED] ✅ Kredensial Blackbox berhasil dihapus dengan aman!
-[BACKUP] File backup tersimpan di: state.vscdb.safe_backup_20250102_123456
+# Export dengan format custom
+python vscdb_converter.py -f state.vscdb --export analysis.json --format json
 
-[COPY COMMAND]:
-   copy "state.vscdb" "C:\Users\[USERNAME]\AppData\Roaming\Cursor\User\globalStorage\state.vscdb"
+# Scan keamanan dengan laporan detail
+python vscdb_converter.py -f state.vscdb --security-scan --detailed
 ```
 
-## 🛠️ Persyaratan
+### Optimasi Performa
 
-- Python 3.6+
-- Module `sqlite3` (sudah built-in)
-- Module `json` (sudah built-in)
+```bash
+# Analisis cepat untuk database besar
+python vscdb_converter.py -f state.vscdb --quick --limit 1000
 
-## ⚡ Penggunaan Cepat
-
-### 🔒 Keamanan Pertama - Selalu Backup!
-
-**Sebelum menjalankan script apapun:**
-
-1. **Tutup Cursor/VSCode sepenuhnya**
-2. Tekan `Win + R` → Ketik `%APPDATA%\Cursor\User\globalStorage` → Enter
-3. **Copy** `state.vscdb` ke direktori script ini
-4. Jalankan script: `python blackbox_logout.py`
-5. **Copy** file yang sudah dibersihkan kembali ke lokasi asli
-6. Buka Cursor - Blackbox akan logout
-
-### 📁 Referensi Lokasi File
-
-**Lokasi Asli:**
-
-```
-C:\Users\[USERNAME]\AppData\Roaming\Cursor\User\globalStorage\state.vscdb
+# Pemrosesan paralel (jika didukung)
+python vscdb_converter.py -f state.vscdb --parallel --threads 4
 ```
 
-**Direktori Script (tempat Anda copy KE):**
+### Pemrosesan Batch
 
+```bash
+# Proses multiple database
+for db in *.vscdb; do
+    python blackbox_logout.py "$db"
+done
 ```
-[Folder download Anda]\black_box_reset_ext\state.vscdb
-```
-
-**Catatan:** Script English juga tersedia dengan suffix `_en`.
 
 ## 🚨 Catatan Keamanan Penting
 
@@ -233,6 +523,50 @@ C:\Users\[USERNAME]\AppData\Roaming\Cursor\User\globalStorage\state.vscdb
 - ✅ **Mudah rollback** - simpan file asli sebagai backup
 - ✅ **Tidak ada overwrite tidak sengaja** - script hanya bekerja pada copy
 
+## 🤝 Contributing
+
+### Cara Berkontribusi
+
+1. **Fork** repository
+2. **Buat** branch fitur (`git checkout -b feature/fitur-menakjubkan`)
+3. **Commit** perubahan Anda (`git commit -m 'Tambah fitur menakjubkan'`)
+4. **Push** ke branch (`git push origin feature/fitur-menakjubkan`)
+5. **Buka** Pull Request
+
+### Panduan Development
+
+- 📝 **Dokumentasi:** Update README untuk fitur baru
+- 🧪 **Testing:** Test di multiple platform (Windows/macOS/Linux)
+- 🔒 **Keamanan:** Pastikan tidak ada kebocoran data sensitif
+- ⚡ **Performa:** Optimalkan untuk dataset besar
+- 🐛 **Bug Fixes:** Sertakan test case untuk perbaikan
+
+## 📄 License
+
+Project ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+
+**Penting:** Script ini dibuat untuk analisis database dan manajemen kredensial. Gunakan dengan bertanggung jawab dan pastikan data sensitif tetap aman.
+
 ---
 
-**🎯 Tujuan:** Menghapus kredensial Blackbox dengan aman tanpa merusak data Cursor lainnya.
+## 🎉 Getting Started
+
+**Siap menghapus kredensial Blackbox dengan aman?**
+
+```bash
+# Quick start dalam 3 langkah:
+git clone <repository-url>
+cd blackbox_logout
+python blackbox_logout.py
+```
+
+**Butuh bantuan?** Cek [section troubleshooting](#-troubleshooting) atau buka issue.
+
+---
+
+**💡 Pro Tips:**
+
+- Mulai dengan `blackbox_logout.py` untuk penghapusan kredensial yang aman
+- Gunakan `vscdb_converter.py` untuk eksplorasi database lengkap
+- Selalu backup file database asli Anda
+- Test dengan copy sebelum menerapkan perubahan ke file asli
