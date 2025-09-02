@@ -560,7 +560,7 @@ cd blackbox_logout
 python blackbox_logout_en.py
 ```
 
-**Need help?** Check the [troubleshooting section](#-troubleshooting) or open an issue.
+**Need help?** Check the [troubleshooting section](https://github.com/fajarkurnia0388/blackbox_logout/issues) or open an issue.
 
 ---
 
@@ -570,3 +570,4 @@ python blackbox_logout_en.py
 - Use `vscdb_converter_en.py` for complete database exploration
 - Always backup your original database files
 - Test with copies before applying changes to original files
+
